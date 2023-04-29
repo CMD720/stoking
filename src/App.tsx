@@ -1,26 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './scss/app.scss'
+import Header from "./componets/header";
+import { ThemeProvider } from '@mui/material/styles';
+import {myTheme} from "./theme/Theme";
+import {Container} from "@mui/material";
+import Collaboration from "./componets/collaboration";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    return (
+        <ThemeProvider theme={myTheme}>
+            <Container
+                // className='mainContainer'
+                // maxWidth='xl'
+                sx={{
+                    border: '1px dashed',
+                    maxWidth:'1250px',
+                    padding: {xs:myTheme.spacing(0, 2)}
+                }}
+            >
+                <Header/>
+                <Collaboration/>
+            </Container>
+        </ThemeProvider>
+    );
+};
 
 export default App;

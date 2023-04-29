@@ -1,0 +1,8 @@
+@import './variables';
+@import './libs/normalize';
+
+.mainContainer{
+  max-width: 1300px;
+  border: 1px dashed;
+  padding-left: 0;
+}
