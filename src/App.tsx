@@ -5,6 +5,9 @@ import { ThemeProvider } from '@mui/material/styles';
 import {myTheme} from "./theme/Theme";
 import {Container} from "@mui/material";
 import Collaboration from "./componets/collaboration";
+import WorkStages from "./componets/workStages";
+import Banner2 from "./componets/banner2";
+import Brands from "./componets/brands";
 
 const App = () => {
     return (
@@ -20,6 +23,9 @@ const App = () => {
             >
                 <Header/>
                 <Collaboration/>
+                <WorkStages/>
+                <Banner2/>
+                <Brands/>
             </Container>
         </ThemeProvider>
     );

@@ -31,7 +31,7 @@ const IconMenu = () => {
                 <CardMedia
                     sx={{height: 23, width: 23, mx: '10px'}}
                     image="/img/message.svg"
-                    title="call us"
+                    title="message"
                 />
                 <Typography component="div"  noWrap={true} sx={{display: {xs: 'flex', md: 'none'}}}>
                     Сообщения
@@ -46,10 +46,10 @@ const IconMenu = () => {
                 <CardMedia
                     sx={{height: 23, width: 23, mx: '10px'}}
                     image="/img/person.svg"
-                    title="call us"
+                    title="person"
                 />
                 <Typography component="div"  noWrap={true} sx={{display: {xs: 'flex', md: 'none'}}}>
-                    Личный кабинет
+                    Профиль
                 </Typography>
             </IconButton>
             <IconButton
@@ -61,10 +61,10 @@ const IconMenu = () => {
                 <CardMedia
                     sx={{height: 23, width: 23, mx: '10px'}}
                     image="/img/Frame42.svg"
-                    title="call us"
+                    title="Frame24 =)"
                 />
                 <Typography component="div"  noWrap={true} sx={{display: {xs: 'flex', md: 'none'}}}>
-                    Графики
+                    Сравнение товаров
                 </Typography>
             </IconButton>
             <IconButton
@@ -76,7 +76,7 @@ const IconMenu = () => {
                 <CardMedia
                     sx={{height: 23, width: 23, mx: '10px'}}
                     image="/img/favorites.svg"
-                    title="call us"
+                    title="favorites"
                 />
                 <Typography component="div"  noWrap={true} sx={{display: {xs: 'flex', md: 'none'}}}>
                     Избранное
@@ -91,93 +91,12 @@ const IconMenu = () => {
                 <CardMedia
                     sx={{height: 23, width: 23, mx: '10px'}}
                     image="/img/cart.svg"
-                    title="call us"
+                    title="cart"
                 />
                 <Typography component="div"  noWrap={true} sx={{display: {xs: 'flex', md: 'none'}}}>
                     Корзина
                 </Typography>
             </IconButton>
-
-            {/*************************************************************/}
-            {/*<Typography component="div"  noWrap={true}>*/}
-            {/*    <IconButton*/}
-            {/*        size="large"*/}
-            {/*        edge="start"*/}
-            {/*        color="inherit"*/}
-            {/*        aria-label="menu"*/}
-            {/*        sx={{mr: 1}}*/}
-            {/*    >*/}
-            {/*        <CardMedia*/}
-            {/*            sx={{height: 23, width: 23}}*/}
-            {/*            image="/img/message.svg"*/}
-            {/*            title="call us"*/}
-            {/*        />*/}
-            {/*    </IconButton>*/}
-            {/*</Typography>*/}
-
-            {/*<Typography component="div"  noWrap={true}>*/}
-            {/*    <IconButton*/}
-            {/*        size="large"*/}
-            {/*        edge="start"*/}
-            {/*        color="inherit"*/}
-            {/*        aria-label="menu"*/}
-            {/*        sx={{mr: 1}}*/}
-            {/*    >*/}
-            {/*        <CardMedia*/}
-            {/*            sx={{height: 23, width: 23}}*/}
-            {/*            image="/img/person.svg"*/}
-            {/*            title="call us"*/}
-            {/*        />*/}
-            {/*    </IconButton>*/}
-            {/*</Typography>*/}
-
-            {/*<Typography component="div"  noWrap={true}>*/}
-            {/*    <IconButton*/}
-            {/*        size="large"*/}
-            {/*        edge="start"*/}
-            {/*        color="inherit"*/}
-            {/*        aria-label="menu"*/}
-            {/*        sx={{mr: 1}}*/}
-            {/*    >*/}
-            {/*        <CardMedia*/}
-            {/*            sx={{height: 23, width: 23}}*/}
-            {/*            image="/img/Frame42.svg"*/}
-            {/*            title="call us"*/}
-            {/*        />*/}
-            {/*    </IconButton>*/}
-            {/*</Typography>*/}
-
-            {/*<Typography component="div"  noWrap={true}>*/}
-            {/*    <IconButton*/}
-            {/*        size="large"*/}
-            {/*        edge="start"*/}
-            {/*        color="inherit"*/}
-            {/*        aria-label="menu"*/}
-            {/*        sx={{mr: 1}}*/}
-            {/*    >*/}
-            {/*        <CardMedia*/}
-            {/*            sx={{height: 23, width: 23}}*/}
-            {/*            image="/img/favorites.svg"*/}
-            {/*            title="call us"*/}
-            {/*        />*/}
-            {/*    </IconButton>*/}
-            {/*</Typography>*/}
-
-            {/*<Typography component="div"  noWrap={true}>*/}
-            {/*    <IconButton*/}
-            {/*        size="large"*/}
-            {/*        edge="start"*/}
-            {/*        color="inherit"*/}
-            {/*        aria-label="menu"*/}
-            {/*    >*/}
-            {/*        <CardMedia*/}
-            {/*            sx={{height: 23, width: 23}}*/}
-            {/*            image="/img/cart.svg"*/}
-            {/*            title="call us"*/}
-            {/*        />*/}
-            {/*    </IconButton>*/}
-            {/*</Typography>*/}
-
         </Box>
     );
 };
