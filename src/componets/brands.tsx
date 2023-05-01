@@ -1,10 +1,11 @@
-import React, {useEffect, useState} from 'react';
-import {Box, Button, CardMedia, ListItemText, Typography} from "@mui/material";
+import React, {useEffect, useRef, useState} from 'react';
+import {Box, Button, Card, CardMedia, Grid, ListItemText, Typography} from "@mui/material";
 import CardBrand from "./cardBrand";
 import JoinUsButton from "./UI/joinUsButton";
 import {useAppDispatch, useAppSelector} from "../redux/storeHooks";
 import {fetchItems} from "../redux/Item/fetchItem";
 import {itemDataSelector} from "../redux/Item/selector";
+import Loader from './loader/loader';
 
 const Brands = () => {
 
@@ -22,6 +23,40 @@ const Brands = () => {
     useEffect(() => {
         getItems()
     }, [])
+    const brandBlock = useRef()
+    let isPaused = false;
+    window.setInterval(function(){
+        if(!isPaused){
+            window.scrollTo(0, document.body.scrollHeight);
+        }
+    }, 500);
+    const cardBrand = items.map((item: any, index: number) => (
+        <Grid item xs={4} md={4}>
+            <Card
+                sx={{
+                    width: '181px',
+                    height: '115px',
+                    boxShadow: '0px 0px 15px rgba(77, 77, 77, 0.15)',
+                    borderRadius: '8px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                }}
+            >
+                <CardMedia
+                    sx={{
+                        // width: '70%',
+                        // height: '50%',
+                        height: 'auto',
+                        width: 'auto',
+                    }}
+                    component="img"
+                    image={item.thumbnail.sizes[0].path}
+                    title={item.name}
+                />
+            </Card>
+        </Grid>
+    ))
     return (
         <Box
             sx={{
@@ -91,81 +126,50 @@ const Brands = () => {
             >
                 <Box component='div'
                      sx={{
-                         display:{xs:'none', md:'block'},
+                         display: {xs: 'none', md: 'block'},
                          height: '62px',
                          width: '100%',
                          bgcolor: '#FFFF',
                          filter: 'blur(2px)',
                          opacity: '0.85',
                          position: 'absolute',
-                         top: '0',
-
+                         // top: '0',
+                         top: '-20px',
                      }}
                 >
-
                 </Box>
+                {/*<Box component='div'*/}
+                {/*<Grid container*/}
+                {/*    // spacing={2}*/}
+                {/*      rowSpacing={2}*/}
+                {/*      columnSpacing={2}*/}
+                {/*    // columns={{sx:3, md:3}}*/}
+                {/*    // ref={brandBlock}*/}
+                {/*      sx={{*/}
+                {/*          pl: {xs: '0', md: '2.5%'},*/}
+                {/*          pr: {xs: '0', md: '1.5%'},*/}
+                {/*          minHeight: '518px',*/}
+                {/*          maxHeight: '518px',*/}
+                {/*          overflow: {xs: 'scroll hidden', md: 'hidden scroll'},*/}
+                {/*          // scrollbarWidth: '5px',*/}
+                {/*          scrollBehavior: 'smooth',*/}
+                {/*      }}*/}
+                {/*>*/}
+                {/*    {*/}
+                {/*        status === 'loading'*/}
+                {/*            ? <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100vw'}}><Loader/></Box>*/}
+                {/*            : cardBrand*/}
+                {/*    }*/}
+                {/*    {*/}
+                {/*        status === 'loading'*/}
+                {/*            ? <></>*/}
+                {/*            : <Box sx={{bgcolor: "#FAD395FF", height: '20px', width: '100%'}}></Box>*/}
+                {/*    }*/}
+                {/*</Grid>*/}
+                <CardBrand/>
                 <Box component='div'
                      sx={{
-                         pl: {xs: '0', md: '2.5%'},
-                         pr: {xs: '0', md: '1.5%'},
-                         minHeight: '518px',
-                         maxHeight: '518px',
-                         overflow:'scroll',
-                     }}
-                >
-                    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum fugit laborum molestias qui.
-                        Aperiam asperiores dolore enim harum iure laboriosam laborum magni odit perferendis quod
-                        reiciendis,
-                        sapiente sunt! Dolores, neque.
-                    </div><div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum fugit laborum molestias qui.
-                        Aperiam asperiores dolore enim harum iure laboriosam laborum magni odit perferendis quod
-                        reiciendis,
-                        sapiente sunt! Dolores, neque.
-                    </div><div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum fugit laborum molestias qui.
-                        Aperiam asperiores dolore enim harum iure laboriosam laborum magni odit perferendis quod
-                        reiciendis,
-                        sapiente sunt! Dolores, neque.
-                    </div>
-                    {/*<CardBrand/>*/}
-                    <div>Accusamus aperiam consequuntur, corporis culpa distinctio doloremque eaque eos error est
-                        expedita
-                        explicabo facilis magnam maiores nobis non nostrum numquam omnis quibusdam quod recusandae
-                        reiciendis repellendus totam unde velit veritatis!
-                    </div>
-                    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum fugit laborum molestias qui.
-                        Aperiam asperiores dolore enim harum iure laboriosam laborum magni odit perferendis quod
-                        reiciendis,
-                        sapiente sunt! Dolores, neque.
-                    </div>
-                    <div>Accusamus aperiam consequuntur, corporis culpa distinctio doloremque eaque eos error est
-                        expedita
-                        explicabo facilis magnam maiores nobis non nostrum numquam omnis quibusdam quod recusandae
-                        reiciendis repellendus totam unde velit veritatis!
-                    </div>
-                    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum fugit laborum molestias qui.
-                        Aperiam asperiores dolore enim harum iure laboriosam laborum magni odit perferendis quod
-                        reiciendis,
-                        sapiente sunt! Dolores, neque.
-                    </div>
-                    <div>Accusamus aperiam consequuntur, corporis culpa distinctio doloremque eaque eos error est
-                        expedita
-                        explicabo facilis magnam maiores nobis non nostrum numquam omnis quibusdam quod recusandae
-                        reiciendis repellendus totam unde velit veritatis!
-                    </div>
-                    <div>Accusamus aperiam consequuntur, corporis culpa distinctio doloremque eaque eos error est
-                        expedita
-                        explicabo facilis magnam maiores nobis non nostrum numquam omnis quibusdam quod recusandae
-                        reiciendis repellendus totam unde velit veritatis!
-                    </div>
-                    <div>Accusamus aperiam consequuntur, corporis culpa distinctio doloremque eaque eos error est
-                        expedita
-                        explicabo facilis magnam maiores nobis non nostrum numquam omnis quibusdam quod recusandae
-                        reiciendis repellendus totam unde velit veritatis!
-                    </div>
-                </Box>
-                <Box component='div'
-                     sx={{
-                         display:{xs:'none', md:'block'},
+                         display: {xs: 'none', md: 'block'},
                          height: '62px',
                          width: '100%',
                          bgcolor: '#FFFF',
@@ -173,7 +177,8 @@ const Brands = () => {
                          opacity: '0.85',
                          transform: 'matrix(1, 0, 0, -1, 0, 0)',
                          position: 'absolute',
-                         bottom: '0',
+                         // bottom: '0',
+                         bottom: '-20px',
                      }}
                 >
 
