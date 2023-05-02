@@ -1,7 +1,7 @@
 import React from 'react';
 import {Box, CardMedia, Container, ListItemText, Typography} from "@mui/material";
 
-const Banner2 = () => {
+const Middle = () => {
 
     const texts:string[] = [
         'Stoking — маркетплейс инженерно-промышленного оборудования.',
@@ -133,4 +133,4 @@ const Banner2 = () => {
     );
 };
 
-export default Banner2;
+export default Middle;

@@ -1,9 +1,9 @@
 import React from 'react';
 import {Box, CardMedia, Container, CssBaseline, Grid} from "@mui/material";
-import track2 from '../img/track2.png';
-import trackDash2 from '../img/track2_dash.png';
-import track1 from '../img/track1.png';
-import trackDash1 from '../img/track1_dash.png';
+import track2 from '../../img/track2.png';
+import trackDash2 from '../../img/track2_dash.png';
+import track1 from '../../img/track1.png';
+import trackDash1 from '../../img/track1_dash.png';
 
 const Banner = () => {
     return (

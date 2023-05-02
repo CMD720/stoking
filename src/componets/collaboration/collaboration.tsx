@@ -1,10 +1,10 @@
 import React from 'react';
 import {Box, Button, CardMedia, Container, Grid, IconButton, ListItemText, Typography} from "@mui/material";
-import LanguageSelect from "./UI/LanguageSelect";
+import LanguageSelect from "../UI/LanguageSelect";
 import {NavLink} from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import Banner from "./banner";
-import JoinUsButton from "./UI/joinUsButton";
+import JoinUsButton from "../UI/joinUsButton";
 
 const Collaboration = () => {
 

@@ -1,11 +1,11 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {Box, Button, Card, CardMedia, Grid, ListItemText, Typography} from "@mui/material";
-import CardBrand from "./cardBrand";
-import JoinUsButton from "./UI/joinUsButton";
-import {useAppDispatch, useAppSelector} from "../redux/storeHooks";
-import {fetchItems} from "../redux/Item/fetchItem";
-import {itemDataSelector} from "../redux/Item/selector";
-import Loader from './loader/loader';
+import JoinUsButton from "../UI/joinUsButton";
+import {useAppDispatch, useAppSelector} from "../../redux/storeHooks";
+import {fetchItems} from "../../redux/Item/fetchItem";
+import {itemDataSelector} from "../../redux/Item/selector";
+import Loader from '../loader/loader';
+import CardBrand from './cardBrand';
 
 const Brands = () => {
 
@@ -23,40 +23,7 @@ const Brands = () => {
     useEffect(() => {
         getItems()
     }, [])
-    const brandBlock = useRef()
-    let isPaused = false;
-    window.setInterval(function(){
-        if(!isPaused){
-            window.scrollTo(0, document.body.scrollHeight);
-        }
-    }, 500);
-    const cardBrand = items.map((item: any, index: number) => (
-        <Grid item xs={4} md={4}>
-            <Card
-                sx={{
-                    width: '181px',
-                    height: '115px',
-                    boxShadow: '0px 0px 15px rgba(77, 77, 77, 0.15)',
-                    borderRadius: '8px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center'
-                }}
-            >
-                <CardMedia
-                    sx={{
-                        // width: '70%',
-                        // height: '50%',
-                        height: 'auto',
-                        width: 'auto',
-                    }}
-                    component="img"
-                    image={item.thumbnail.sizes[0].path}
-                    title={item.name}
-                />
-            </Card>
-        </Grid>
-    ))
+
     return (
         <Box
             sx={{
@@ -69,6 +36,7 @@ const Brands = () => {
                 // justifyContent: 'space-between',
             }}
         >
+            {/*--------------------------LEFT--------------------------*/}
             <Box component='div'
                  sx={{
                      width: {xs: '100%', md: '50%'},
@@ -116,7 +84,7 @@ const Brands = () => {
                     </Button>
                 </Typography>
             </Box>
-            {/************************************************************************************************/}
+            {/*--------------------------RIGHT--------------------------*/}
             <Box
                 sx={{
                     maxHeigth: '518px',
@@ -136,37 +104,10 @@ const Brands = () => {
                          // top: '0',
                          top: '-20px',
                      }}
-                >
-                </Box>
-                {/*<Box component='div'*/}
-                {/*<Grid container*/}
-                {/*    // spacing={2}*/}
-                {/*      rowSpacing={2}*/}
-                {/*      columnSpacing={2}*/}
-                {/*    // columns={{sx:3, md:3}}*/}
-                {/*    // ref={brandBlock}*/}
-                {/*      sx={{*/}
-                {/*          pl: {xs: '0', md: '2.5%'},*/}
-                {/*          pr: {xs: '0', md: '1.5%'},*/}
-                {/*          minHeight: '518px',*/}
-                {/*          maxHeight: '518px',*/}
-                {/*          overflow: {xs: 'scroll hidden', md: 'hidden scroll'},*/}
-                {/*          // scrollbarWidth: '5px',*/}
-                {/*          scrollBehavior: 'smooth',*/}
-                {/*      }}*/}
-                {/*>*/}
-                {/*    {*/}
-                {/*        status === 'loading'*/}
-                {/*            ? <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100vw'}}><Loader/></Box>*/}
-                {/*            : cardBrand*/}
-                {/*    }*/}
-                {/*    {*/}
-                {/*        status === 'loading'*/}
-                {/*            ? <></>*/}
-                {/*            : <Box sx={{bgcolor: "#FAD395FF", height: '20px', width: '100%'}}></Box>*/}
-                {/*    }*/}
-                {/*</Grid>*/}
+                />
+
                 <CardBrand/>
+
                 <Box component='div'
                      sx={{
                          display: {xs: 'none', md: 'block'},
@@ -180,9 +121,8 @@ const Brands = () => {
                          // bottom: '0',
                          bottom: '-20px',
                      }}
-                >
+                />
 
-                </Box>
             </Box>
         </Box>
     );
