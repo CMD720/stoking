@@ -1,12 +1,10 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
 import modalSlice from './Modal/slice'
 import itemSlice from "./Item/slice";
-import cartSlice from "./Cart/slice";
 
 const rootReducer = combineReducers({
     modal: modalSlice,
     item: itemSlice,
-    cart: cartSlice
 })
 
 export const setupStore = () => {

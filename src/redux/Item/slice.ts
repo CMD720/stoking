@@ -4,13 +4,12 @@ import {fetchItems} from "./fetchItem";
 
 const initialState: ItemsSliceProps = {
     items: [],
-    totalCount: 0,
     status: Status.LOADING, // loading | success | error
     links:{
-        self: '',
-        first: '',
-        last: '',
-        next: '',
+        self: {href:''},
+        first: {href:'https://api.stoking.ru/v1/brands?selection[filter]=[%7B%22id%22:%22used%22,%22value%22:1%7D]&expand=thumbnail.sizes&fields=id,name,slug,thumbnail.*&per-page=36&page=1&sort=-countDeal'},
+        last: {href:''},
+        next: {href:''},
     },
     meta:{
         totalCount: 0,
@@ -32,8 +31,8 @@ export const itemSlice = createSlice({
     extraReducers: (builder) => {
         builder.addCase(fetchItems.fulfilled, (state, action) => {
             state.items = action.payload.items
-            state.totalCount = action.payload._meta.totalCount
             state.meta = action.payload._meta
+            state.links = action.payload._links
             state.status = Status.SUCCESS
             // console.log('META - ',state.meta);
             // console.log('META payload - ',action.payload._meta);

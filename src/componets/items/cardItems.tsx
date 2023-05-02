@@ -1,8 +1,9 @@
-import React, {useRef} from 'react';
+import React, {useEffect} from 'react';
 import {Box, Card, CardMedia, Typography} from "@mui/material";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const CardItems = () => {
-    // const[left, setLeft]
 
     const items = [
         {
@@ -38,74 +39,76 @@ const CardItems = () => {
 
     ]
 
-    const itemRef = useRef<HTMLDivElement>(null)
-    const weid = itemRef.current?.children[0].clientWidth ?? 91;
-    console.log('item REF', itemRef)
-    console.log('Size chirdren - must be 182', weid)
-    console.log('d')
+    const cardItems = items.map((item, index) => (
+        <Card key={index}
+              data-aos="fade-left"
+              sx={{
+                  width: '182px',
+                  height: '256px',
+                  boxShadow: '0px 0px 15px rgba(77, 77, 77, 0.15)',
+                  borderRadius: '8px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  justifyContent: 'flex-end',
+                  position: 'absolute',
+                  left: ` calc( 50% * ${index} ) `,
+                  '&:hover': {
+                      zIndex: '2',
+                      top:'-30px',
+                  },
+              }}
+        >
+            <CardMedia sx={{height: 'auto', width: 'auto', justifySelf: 'end',}}
+                       component="img"
+                       image={item.image}
+            />
+            <Box>
+                <Typography component='div' sx={{
+                    fontSize: '13px',
+                    lineHeight: '16.25px',
+                    color: '#3A3A3A',
+                    mb: '15px',
+                    pl: '20px'
+                }}>
+                    {item.name}
+                </Typography>
+                <Typography component='div' sx={{
+                    flexGrow: 1,
+                    fontSize: '12px',
+                    lineHeight: '16.25px',
+                    color: '#3A3A3A',
+                    display: 'flex',
+                    mb: '15px',
+                    pl: '20px'
+                }}>
+                    <Typography sx={{fontSize: '12px', lineHeight: '16.25px', color: '#9C9C9C', mr: '5px'}}>
+                        Артикул:
+                    </Typography>
+                    {item.itemId}
+                </Typography>
+                <Typography
+                    sx={{fontSize: '20px', color: '#ED7117', fontWeight: 700, ml: '20px', mb: '20px'}}>
+                    {item.price} ₽
+                </Typography>
+            </Box>
+        </Card>
+    ))
+
+    useEffect(() => {
+        AOS.init();
+    }, [])
 
     return (
-        <Box ref={itemRef}
-             sx={{
-                 display: 'flex',
-                 alignItems: 'center',
-                 justifyContent: 'center',
-                 position: 'relative',
-                 width: '182px',
-                 height: '256px',
-             }}
+        <Box
+            sx={{
+                position: 'relative',
+                width: '182px',
+                height: '256px',
+            }}
         >
             {
-                items.map((item, index) => (
-                    <Card key={index}
-                          sx={{
-                              width: '182px',
-                              height: '256px',
-                              boxShadow: '0px 0px 15px rgba(77, 77, 77, 0.15)',
-                              borderRadius: '8px',
-                              display: 'flex',
-                              flexDirection: 'column',
-                              alignItems: 'center',
-                              justifyContent: 'flex-end',
-                              position: 'absolute',
-                              left: ` calc( 91px * ${index} ) `,
-                          }}
-                    >
-                        <CardMedia sx={{height: 'auto', width: 'auto', justifySelf: 'end',}}
-                                   component="img"
-                                   image={item.image}
-                        />
-                        <Box>
-                            <Typography sx={{
-                                fontSize: '13px',
-                                lineHeight: '16.25px',
-                                color: '#3A3A3A',
-                                mb: '15px',
-                                pl: '20px'
-                            }}>
-                                {item.name}
-                            </Typography>
-                            <Typography sx={{
-                                flexGrow: 1,
-                                fontSize: '12px',
-                                lineHeight: '16.25px',
-                                color: '#3A3A3A',
-                                display: 'flex',
-                                mb: '15px',
-                                pl: '20px'
-                            }}>
-                                <Typography sx={{fontSize: '12px', lineHeight: '16.25px', color: '#9C9C9C', mr: '5px'}}>
-                                    Артикул:
-                                </Typography>
-                                {item.itemId}
-                            </Typography>
-                            <Typography
-                                sx={{fontSize: '20px', color: '#ED7117', fontWeight: 700, ml: '20px', mb: '20px'}}>
-                                {item.price} ₽
-                            </Typography>
-                        </Box>
-                    </Card>
-                ))
+                cardItems
             }
         </Box>
 

@@ -1,35 +1,31 @@
-import React, {createRef, useEffect, useRef, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {Box, Card, CardMedia, Grid} from "@mui/material";
 import {useAppDispatch, useAppSelector} from "../../redux/storeHooks";
 import {itemDataSelector} from "../../redux/Item/selector";
 import Loader from "../loader/loader";
 import {fetchItems} from "../../redux/Item/fetchItem";
+import axios from "axios";
+import {ItemsSliceProps, Titem} from "../../redux/Item/types";
 
 const CardBrand = () => {
     const dispatch = useAppDispatch()
-    const {items, status, totalCount} = useAppSelector(itemDataSelector)
+    const {items, status,links ,meta} = useAppSelector(itemDataSelector)
+
+    const [brands, setBrands] = useState<Titem[]>([])
+
+
+
 
     const brandBlock = useRef<HTMLDivElement>(null)
-    const openModal = () => {
-        console.log('Open Modal Window')
+    // console.log(links.next.href);
+    const getItems = async() => {
+        const path = meta.currentPage === meta.pageCount || meta.currentPage === 0 ? links.first.href : links.next.href
+        dispatch(fetchItems({path}))
+        const {data} = await axios.get<ItemsSliceProps>(`${path}`)
+        setBrands([...brands, ...data.items])
     }
-    const getItems = () => {
-        dispatch(fetchItems())
-    }
 
-
-    console.log('REF', brandBlock);
-
-    // const brandBlock = useRef()
-    // let isPaused = false;
-    // window.setInterval(function(){
-    //     if(!isPaused){
-    //         window.scrollTo(0, document.body.scrollHeight);
-    //     }
-    // }, 500);
-
-
-    const cardBrand = items.map((item: any, index: number) => (
+    const cardBrand = brands.map((item: Titem, index: number) => (
         <Grid item xs={4} md={4} key={index}>
             <Card
                 sx={{
@@ -50,44 +46,66 @@ const CardBrand = () => {
             </Card>
         </Grid>
     ))
+    const [currentPage , setCurrentPage] = useState(0)
 
+    // const  markerElement = useRef<any>()
+    // const  markerElement = useRef<Element | null>(null)
+    // const observer = useRef<IntersectionObserver>()
+    const lastElement = useRef()
+    const observer = useRef<IntersectionObserver | null>(null)
+    console.log(lastElement.current);
+
+
+
+    // useEffect(()=> {
+    //     let options = {
+    //         root: document.querySelector('#scrollArea'),
+    //         rootMargin: '0px',
+    //         threshold: 1.0
+    //     }
+    //     let callback = function(entries:any, observer:Element) {
+    //         console.log("DIV is visible zone")
+    //     };
+    //     observer = new IntersectionObserver(callback, options);
+    //     observer.observe(lastElement.current);
+    //
+    // },[])
 
     useEffect(() => {
         getItems()
-    }, [])
+    }, [currentPage])
+
+
 
     useEffect(() => {
         const interval = setInterval(() => {
-            const height = brandBlock.current?.children[0].clientHeight ?? 48.2;
-            // const height = 525
+            // const height = brandBlock.current?.children[0].clientHeight ?? 48.2;
+            const height = 525
             console.log('HEIGHT', height);
             brandBlock.current?.scrollTo({
                 top: brandBlock.current?.scrollTop + height,
                 behavior: "smooth",
             })
-        }, 4000);
+        }, 3000);
         return () => clearInterval(interval);
     }, [])
 
     return (
         <Grid container
               ref={brandBlock}
-            // spacing={2}
               rowSpacing={2}
               columnSpacing={2}
-            // columns={{sx:3, md:3}}
               sx={{
                   pl: {xs: '0', md: '2.5%'},
                   pr: {xs: '0', md: '1.5%'},
                   minHeight: '518px',
                   maxHeight: '518px',
                   overflow: {xs: 'scroll hidden', md: 'hidden scroll'},
-                  // float:'left',
               }}
         >
             {
-                status === 'loading'
-                    ? <Box
+                status === 'loading' &&
+                    <Box component='div'
                         sx={{
                             display: 'flex',
                             justifyContent: 'center',
@@ -97,13 +115,14 @@ const CardBrand = () => {
                     >
                         <Loader/>
                     </Box>
-                    : cardBrand
             }
+            {cardBrand}
             {
                 status === 'loading'
                     ? <></>
-                    //for oserver
-                    : <Box sx={{bgcolor: "#FAD395FF", height: '20px', width: '100%'}}></Box> //for oserver
+                    //for observer
+                    : <Box component='div' ref={lastElement} sx={{bgcolor: "#FAD395FF", height: '20px', width: '100%'}}></Box> //for observer
+                    // : <div ref={lastElement} style={{background: "#FAD395FF", height: '20px', width: '100%'}}></div> //for observer
             }
 
         </Grid>

@@ -1,23 +1,27 @@
 import {Box, CardMedia, ListItemText, MenuItem, TextField, Typography} from '@mui/material';
 import React, {useState} from 'react';
+import {getLocalStorageLanguage} from "../../utils/getLocalStorage";
 
 const LanguageSelect = () => {
     const languages = [
         {
             flag: '/img/rus.png',
             label: 'Русский',
+            init: 'ru',
         },
         {
             flag: '/img/eng.png',
             label: 'Английский',
+            init: 'en',
         },
         {
             flag: '/img/tr.png',
             label: 'Турецкий',
+            init: 'tr',
         },
     ];
 
-    const [lang, setLang] = useState(languages[0])
+    const [lang, setLang] = useState(languages[getLocalStorageLanguage()])
 
     return (
         <>

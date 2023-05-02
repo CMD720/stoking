@@ -10,7 +10,8 @@ import CardBrand from './cardBrand';
 const Brands = () => {
 
     const dispatch = useAppDispatch()
-    const {items, status, totalCount} = useAppSelector(itemDataSelector)
+    const {items, status , meta} = useAppSelector(itemDataSelector)
+    const {totalCount} = meta
     // const {width, height, path} = item.thumbnail.sizes[0]
 
 
@@ -18,7 +19,7 @@ const Brands = () => {
         console.log('Open Modal Window')
     }
     const getItems = () => {
-        dispatch(fetchItems())
+        // dispatch(fetchItems())
     }
     useEffect(() => {
         getItems()
@@ -61,12 +62,12 @@ const Brands = () => {
                         image="/img/brands_lable.png"
                         title="brands_lable"
                     />
-                    {totalCount} брендов
+                    {meta.totalCount} брендов
                 </Typography>
 
                 <ListItemText sx={{mb: '20px'}} secondary="Официальный дилер мировых брендов-производителей."/>
 
-                <Typography my='12px'>
+                <Typography component='div' my='12px'>
                     <Button variant="contained"
                             fullWidth
                             id="collabaration-button"

@@ -1,12 +1,8 @@
 
-export const getCartLocalStorage = () => {
-    const data = localStorage.getItem('cart')
-
-    return data ? JSON.parse(data) :{itemsCart:[], totalPrice:0, totalCount:0, totalDiscount:0}
-}
-
-export const getCategoryIDFromLS = () => {
-    const data = localStorage.getItem('category')
-
-    return data ? JSON.parse(data) :{categoryId:-1}
+export const getLocalStorageLanguage = () => {
+    //условный список языков
+    const languageList = ['ru','en','tr',]
+    const data = localStorage.getItem('lang')
+    const index = data ? languageList.indexOf(data,0) : 0
+    return index === -1 ? 0 : index
 }

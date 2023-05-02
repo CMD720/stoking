@@ -10,7 +10,6 @@ const Middle = () => {
         'Мы хотим знать что вы производите, продаете и донести это миру.',
     ]
 
-        //TODO строки в массив и мапить компонент, а не вот это вот всё!!!
     return (
         <Box
             sx={{
@@ -51,8 +50,6 @@ const Middle = () => {
                             sx={{
                                 display: 'inline',
                                 fontSize: {xs: '14px', sm: '16px'},
-                                // fontSize: '1rem',
-                                //TODO Responsive font sizes ?!?! если останется время =)
                             }}
                             component="span"
                             variant="body1"
@@ -62,71 +59,6 @@ const Middle = () => {
                         </Typography>
                     </Box>
                 ))}
-
-
-                {/*<Box sx={{*/}
-                {/*    mb: '18px',*/}
-                {/*}}>*/}
-                {/*    <Typography*/}
-                {/*        sx={{*/}
-                {/*            display: 'inline',*/}
-                {/*            fontSize: {xs:'14px',sm:'16px'},*/}
-                {/*        }}*/}
-                {/*        component="span"*/}
-                {/*        variant="body1"*/}
-                {/*        color="text.primary"*/}
-                {/*    >*/}
-                {/*        Stoking — маркетплейс инженерно-промышленного оборудования.*/}
-                {/*    </Typography>*/}
-                {/*</Box>*/}
-
-                {/*<Box sx={{*/}
-                {/*    mb: '18px',*/}
-                {/*}}>*/}
-                {/*    <Typography*/}
-                {/*        sx={{*/}
-                {/*            display: 'inline',*/}
-                {/*            fontSize: {xs:'14px',sm:'16px'},*/}
-                {/*        }}*/}
-                {/*        component="span"*/}
-                {/*        variant="body1"*/}
-                {/*        color="text.primary"*/}
-                {/*    >*/}
-                {/*        Рынок промышленного оборудования изменяется. Появляются новые, качественные бренды, формируются*/}
-                {/*        больше склады, меняется политика компаний, ускоряются процессы логистики оборудования.*/}
-                {/*    </Typography>*/}
-                {/*</Box>*/}
-
-                {/*<Box sx={{*/}
-                {/*    mb: '18px',*/}
-                {/*}}>*/}
-                {/*    <Typography*/}
-                {/*        sx={{*/}
-                {/*            display: 'inline',*/}
-                {/*            fontSize: {xs:'14px',sm:'16px'},*/}
-                {/*        }}*/}
-                {/*        component="span"*/}
-                {/*        variant="body1"*/}
-                {/*        color="text.primary"*/}
-                {/*    >*/}
-                {/*        Стокинг это более 50 инженеров, создавших сервис-проводник в сегменте промышленного*/}
-                {/*        оборудования.*/}
-                {/*    </Typography>*/}
-                {/*</Box>*/}
-                {/*<Box sx={{*/}
-                {/*}}>*/}
-                {/*    <Typography*/}
-                {/*        sx={{*/}
-                {/*            display: 'inline',*/}
-                {/*            fontSize: {xs:'14px',sm:'16px'},*/}
-                {/*        }}*/}
-                {/*        component="span"*/}
-                {/*        variant="body1"*/}
-                {/*        color="text.primary"*/}
-                {/*    >*/}
-                {/*        Мы хотим знать что вы производите, продаете и донести это миру.*/}
-                {/*    </Typography>*/}
-                {/*</Box>*/}
             </Box>
 
         </Box>

@@ -21,8 +21,7 @@ const Collaboration = () => {
             pt: {xs: '5px', sm: '30px'},
         }}>
             <Grid container mb='45px' sx={{justifyContent: 'center', alignItems: 'center'}}>
-                {/*<NavLink to='/'>*/}
-                <Typography
+                <Typography component='div'
                     sx={{
                         fontSize: '14px',
                         color: '#939393',
@@ -48,7 +47,6 @@ const Collaboration = () => {
                     </IconButton>
                     — Сотрудничество Stoking
                 </Typography>
-                {/*</NavLink>*/}
 
                 <ListItemText primary='Выберите язык:' sx={{display: {xs: 'none', sm: 'block'}, flexGrow: 0,}}/>
 

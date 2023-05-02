@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {Box, Typography} from "@mui/material";
 import CatalogButton from "./UI/CatalogButton";
 import Search from "./UI/Search";
@@ -14,6 +14,12 @@ const Header = () => {
         }
         setSearch(e.target.value);
     };
+
+    useEffect(() => {
+            const userLang = navigator.language;
+            localStorage.setItem('lang', userLang)
+    }, [])
+
     console.log(search);
     return (
         <Box sx={{

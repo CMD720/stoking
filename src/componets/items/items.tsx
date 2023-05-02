@@ -10,11 +10,8 @@ const Items = () => {
                 display: 'flex',
                 alignItems: 'center',
                 flexDirection: {xs: 'column', md: 'row'},
-                mt:'70px'
-                // alignItems: {xs:'none',sm:'center',md:'none'},
-                // justifyContent: 'center',
-                // position:'relative',
-                // justifyContent: 'space-between',
+                mt:'70px',
+                mb:'124px'
             }}
         >
             {/*--------------------------LEFT--------------------------*/}
@@ -52,14 +49,12 @@ const Items = () => {
             <Box
                 sx={{
                     maxHeigth: '518px',
-                    width: {xs: 'auto', md: '50%'},
+                    width: {xs: '100%', md: '50%'},
                     position: 'relative',
+                    overflow:'hidden',
                 }}
             >
-
                 <CardItems/>
-
-
             </Box>
         </Box>
     );
