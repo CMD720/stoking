@@ -40,7 +40,6 @@ const LanguageSelect = () => {
                         defaultValue={lang.label}
                         variant="standard"
                         size='small'
-                        // sx={{width:'150px'}}
                     >
                         {languages.map((language) => (
                             <MenuItem key={language.label} value={language.label }>

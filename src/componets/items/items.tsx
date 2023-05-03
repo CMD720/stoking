@@ -1,6 +1,5 @@
 import React from 'react';
-import {Box, Button, CardMedia, ListItemText, Typography} from "@mui/material";
-import CardBrand from "../brands/cardBrand";
+import {Box, CardMedia, ListItemText, Typography} from "@mui/material";
 import CardItems from "./cardItems";
 
 const Items = () => {

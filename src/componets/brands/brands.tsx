@@ -1,29 +1,18 @@
-import React, {useEffect, useRef, useState} from 'react';
-import {Box, Button, Card, CardMedia, Grid, ListItemText, Typography} from "@mui/material";
-import JoinUsButton from "../UI/joinUsButton";
+import React from 'react';
+import {Box, Button, CardMedia, ListItemText, Typography} from "@mui/material";
 import {useAppDispatch, useAppSelector} from "../../redux/storeHooks";
-import {fetchItems} from "../../redux/Item/fetchItem";
 import {itemDataSelector} from "../../redux/Item/selector";
-import Loader from '../loader/loader';
 import CardBrand from './cardBrand';
 
 const Brands = () => {
 
-    const dispatch = useAppDispatch()
-    const {items, status , meta} = useAppSelector(itemDataSelector)
+    const {meta} = useAppSelector(itemDataSelector)
     const {totalCount} = meta
-    // const {width, height, path} = item.thumbnail.sizes[0]
 
 
     const openModal = () => {
         console.log('Open Modal Window')
     }
-    const getItems = () => {
-        // dispatch(fetchItems())
-    }
-    useEffect(() => {
-        getItems()
-    }, [])
 
     return (
         <Box
@@ -31,10 +20,6 @@ const Brands = () => {
                 display: 'flex',
                 alignItems: 'center',
                 flexDirection: {xs: 'column', md: 'row'},
-                // alignItems: {xs:'none',sm:'center',md:'none'},
-                // justifyContent: 'center',
-                // position:'relative',
-                // justifyContent: 'space-between',
             }}
         >
             {/*--------------------------LEFT--------------------------*/}

@@ -11,14 +11,6 @@ const modalSlice = createSlice({
     initialState,
     reducers: {
         modalOnOff(state, action) {
-            if(action.payload === 'cart'){
-                state.modalCart = !state.modalCart
-                state.modal = false
-            }
-            if(action.payload === 'modal'){
-                state.modal = !state.modal
-                state.modalCart = false
-            }
 
         },
     },

@@ -1,8 +1,6 @@
 import React from 'react';
-import {Box, Grid, TextField} from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
-import styles from '../header/header.module.scss'
-import {alpha, styled} from "@mui/material/styles";
+import {styled} from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
 
 type searchProps = {
@@ -12,16 +10,12 @@ type searchProps = {
 
 const SearchStyle = styled('div')(({ theme }) => ({
     position: 'relative',
-    // marginRight: theme.spacing(2),
     marginRight: '25px',
-    // width: '50%',
     [theme.breakpoints.up('xl')]: {
         marginLeft: theme.spacing(3),
         width: 'auto',
     },
     [theme.breakpoints.down('sm')]: {
-        // flexGrow: 1,
-        // alignSelf: 'flex-end',
         width: 'auto',
         marginRight:'0px',
     },

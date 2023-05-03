@@ -11,7 +11,6 @@ const WorkStages = () => {
                     alignItems: 'center',
                     justifyContent: 'center',
                     position:'relative',
-                    // justifyContent: 'space-between',
                 }}
             >
 
@@ -20,14 +19,12 @@ const WorkStages = () => {
                         display: 'flex',
                         alignItems: 'center',
                         flexDirection:'column',
-                        /*justifyContent: 'space-between',*/
                     }}
                 >
                     <CardMedia
                         sx={{
                             height: 57,
                             width: 57,
-                            // transform: {xs: 'rotate(90deg)', sm: 'none'},
                             mb: {xs:'20px', sm:'10px'},
                         }}
                         image="/img/step1.png"
@@ -119,7 +116,6 @@ const WorkStages = () => {
                         secondary={"Поддерживайте остатки и стоимости в актуальном виде и все продажи будут вашими. Мы об этом позаботимся!"}
                     />
                 </Box>
-
 
             </Box>
 

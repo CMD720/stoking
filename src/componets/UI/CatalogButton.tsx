@@ -55,9 +55,6 @@ const CatalogButton = () => {
                     size="medium"
                     sx={{
                         boxShadow:'none',
-                        // padding:'7px',
-                        // color: {xs: 'primary'},
-                        // variant: {xs: "text", sm: "contained"},
                         display: {xs: 'none', sm: 'inline-flex'},
                         mr: '25px',
                         height:'39px',

@@ -1,5 +1,4 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import {ItemsSliceProps, Titem} from "./types";
 import axios from "axios";
 
 export const fetchItems = createAsyncThunk<any, Record<string, string>>(

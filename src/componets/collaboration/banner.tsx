@@ -1,5 +1,5 @@
 import React from 'react';
-import {Box, CardMedia, Container, CssBaseline, Grid} from "@mui/material";
+import {Box, CardMedia, Container, Grid} from "@mui/material";
 import track2 from '../../img/track2.png';
 import trackDash2 from '../../img/track2_dash.png';
 import track1 from '../../img/track1.png';
@@ -8,12 +8,9 @@ import trackDash1 from '../../img/track1_dash.png';
 const Banner = () => {
     return (
         <>
-            {/*<CssBaseline />*/}
             <Container maxWidth="md"
                        sx={{
                            my: '12px',
-                           // padding:'0px'
-                           // maxWidth:'850px',
                        }}
             >
                 <Grid container sx={{px:{xs:'0',sm:'50px'}, py: '20px', justifyContent: 'center', position:'relative'}}>
@@ -47,8 +44,6 @@ const Banner = () => {
                             sx={{
                                 height: {xs:70,sm:102},
                                 width: {xs:87,sm:127},
-                                // height: 102,
-                                // width: 127
                             }}
                             image="/img/stock.png"
                             title="stock"
@@ -58,8 +53,6 @@ const Banner = () => {
                             sx={{
                                 height: {xs:37,sm:59},
                                 width: {xs:72,sm:120},
-                                // height: 59,
-                                // width: 120
                             }}
                             image="/img/truck.png"
                             title="truck"
@@ -68,8 +61,6 @@ const Banner = () => {
                             sx={{
                                 height: {xs:39,sm:53},
                                 width: {xs:118,sm:152},
-                                // height: 53,
-                                // width: 152
                             }}
                             image="/img/customer.png"
                             title="customer"

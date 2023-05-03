@@ -32,8 +32,8 @@ const Footer = () => {
             {text}
         </Typography>
     ))
-    const iconMenu = icons.map(icon => (
-        <CardMedia sx={styleIconMenu}
+    const iconMenu = icons.map((icon, index) => (
+        <CardMedia sx={styleIconMenu} key={index}
                    component="img"
                    image={icon}
         />

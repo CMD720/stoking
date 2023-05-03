@@ -1,8 +1,6 @@
 import React from 'react';
-import {Box, Button, CardMedia, Container, Grid, IconButton, ListItemText, Typography} from "@mui/material";
+import {Box, CardMedia, Grid, IconButton, ListItemText, Typography} from "@mui/material";
 import LanguageSelect from "../UI/LanguageSelect";
-import {NavLink} from "react-router-dom";
-import MenuIcon from "@mui/icons-material/Menu";
 import Banner from "./banner";
 import JoinUsButton from "../UI/joinUsButton";
 
@@ -15,7 +13,6 @@ const Collaboration = () => {
     return (
         <Box sx={{
             display: 'flex',
-            // flexDirection: {xs: 'column', sm: 'row'},
             flexDirection: 'column',
             py: '30px',
             pt: {xs: '5px', sm: '30px'},
