@@ -28,12 +28,11 @@ const LanguageSelect = () => {
             <Box
                 component="form"
                 sx={{
-                    '& .MuiTextField-root': {m: 1, width: '25ch'},
+                    '& .MuiTextField-root': {m: 1, width: '15ch'},
                 }}
                 noValidate
                 autoComplete="off"
             >
-                <div>
                     <TextField
                         id="standard-select-currency"
                         select
@@ -54,7 +53,6 @@ const LanguageSelect = () => {
                             </MenuItem>
                         ))}
                     </TextField>
-                </div>
             </Box>
         </>
     );
